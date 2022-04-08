@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <button onclick="start()" class="btn start-btn">Start</button>
+        <div class="container flex-dis">
+            <div class="header">Game Caro</div>
+            <div class="full-caro flex-dis">
+                <span class="sub-header"></span>
+                <div class="play-area flex-dis"></div>
+            </div>
+            <button class="btn gamebtn" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        var resultA = [];
+        var resultB = [];
+        var subHeader = document.querySelector('.sub-header');
+        var playArea = document.querySelector('.play-area');
+        var container = document.querySelector('.container');
+        var btnS = document.querySelectorAll('.btn-s');
+        function start() {
+            container.classList.add('turn-on');
+        }
+        var size = prompt('chon size ban co');
+        var str = ``;
+        var valuebtn = 1;
+        for (var i = 0; i < size; i++) {
+            str += `<div class="col">`
+            for (var j = 0; j < size; j++) {
+                str += `<button class="btn-s" value="${valuebtn++}" onclick="set(this)">K</button>`
+            }
+            str += `</div>`
+        }
+        playArea.innerHTML = str;
+        var A = true;
+        var count = 0;
+        function set(btn) {
+            count++
+            btn.innerHTML = A ? 'X' : 'O';
+            btn.style.backgroundColor = A ? '#cb101080' : '#0c26dd80';
+            btn.style.color = A ? 'black' : 'blue';
+            A ? resultA.push(btn.value) : resultB.push(btn.value);
+            A = !A;
+            subHeader.innerHTML = 'luot thu ' + count;
+            btn.setAttribute('disabled', "true");
+            if (count == Math.pow(Number(size), 2)) {
+                alert('game over')
+            }
+            // xet dieu kien thang
+            for (i = 0; i < resultA; i++) {
+                switch (true) {
+                    case resultA.includes(resultA[i] + 1) && resultA.includes(resultA[i] + 2):
+                    case resultB.includes(resultB[i] + 1) && resultB.includes(resultB[i] + 2):
+                    case resultA.includes(resultA[i] + size) && resultA.includes(resultA[i] + (size*2)):
+                    case resultB.includes(resultB[i] + size) && resultB.includes(resultB[i] + (size*2)):
+                    case resultA.includes(resultA[i] + size + 1) && resultA.includes(resultA[i] + (size*2) + 2):
+                    case resultB.includes(resultB[i] + size + 1) && resultB.includes(resultB[i] + (size*2) + 2):
+                    case resultA.includes(resultA[i] + size - 1) && resultA.includes(resultA[i] + (size*2) - 2):
+                    case resultB.includes(resultB[i] + size - 1) && resultB.includes(resultB[i] + (size*2) - 2):
+                        alert('win');
+                        break;
+                }
+            }
+        }
+        function reset() {
+            A = true;
+            count = 0;
+            location.reload()
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.flex-dis{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn.red{
+    background-color: #cb101080;
+}
+
+.btn.blue{
+    background-color: #0c26dd80;
+}
+.btn{
+    background-color: rgba(0, 0 ,0 ,0.5);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: #fff;
+    padding: 5px 6px;
+    min-width: 20px;
+    margin: 8px 2px;
+}
+.btn-s{
+    background-color: rgba(0, 0 ,0 ,0.5);
+    border: 1px solid #fff;
+    outline: none;
+    color: transparent;
+    width: 23px;
+    height: 23px;
+    user-select: none;
+}
+.start-btn{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.main{
+    min-height: 700px;
+    width: 100%;
+    overflow: hidden;
+    background-image: url(./img/back.jpg);
+}
+
+.container.turn-on{
+    display: flex;
+}
+.container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(0, 255, 221);
+    width: 300px;
+    height: 400px;
+    display: none;
+    animation: FadeOn linear 0.3s;
+    z-index: 1;
+}
+.col {
+    height: 23px;
+}
+.header{
+    color: #1529df;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sub-header{
+    color: rgb(214, 94, 15);
+}
+
+.play-area {
+    background-color: #fff;
+    width: 280px;
+    height: 280px;
+    text-align: center;
+    margin: auto;
+}
+
+
+
+@keyframes FadeOn{
+    from{
+        opacity: 0;
+        top: -50%
+    }
+    to{
+        top: 50%;
+        opacity: 1;
+    }
+}
