@@ -71,13 +71,18 @@
                     case resultB.includes(resultB[i] + size - 1) && resultB.includes(resultB[i] + (size*2) - 2):
                         alert('win');
                         break;
+                    }
                 }
-            }
+            console.log('vị trí của A là' + resultA)
+            console.log('vị trí của B là' + resultB)
         }
         function reset() {
             A = true;
             count = 0;
-            location.reload()
+            var kakunin = confirm('bạn có muốn chơi lại không?')
+            if(kakunin == true){
+                location.reload()
+            }
         }
     </script>
 </body>
