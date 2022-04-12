@@ -25,9 +25,8 @@
     outline: none;
     border-radius: 3px;
     color: #fff;
-    padding: 5px 6px;
-    min-width: 20px;
     margin: 8px 2px;
+    cursor: pointer;
 }
 
 .btn-s {
@@ -35,12 +34,20 @@
     border: 1px solid #fff;
     outline: none;
     color: transparent;
+    user-select: none;
+    cursor: pointer;
     width: 23px;
     height: 23px;
-    user-select: none;
+}
+.gamebtn{
+    padding: 5px 6px;
+    min-width: 20px;
 }
 
 .start-btn {
+    width: 111px;
+    height: 42px;
+    font-size: 24px;
     display: block;
     position: fixed;
     top: 50%;
@@ -53,6 +60,7 @@
     width: 100%;
     overflow: hidden;
     background-image: url(./img/back.jpg);
+    position: relative;
 }
 
 .container.turn-on {
@@ -121,17 +129,69 @@
     text-align: center;
     margin: auto;
 }
+/* .toast.block{
+    display: block;
+}
+
+.toast{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height:90px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-left: 5px double rgb(27, 87, 15);
+    animation: fadeIn linear 0.5s;
+    animation: fadeOut linear 0.3s 5s;
+    display: none;
+} */
+
+/* .toast__info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 15px;
+    color: rgb(27, 87, 15);
+    padding: 0 15px 0 25px;
+}
+.toast__info-text{
+    margin: 0;
+}
+.toast__info-icon{
+    margin-left: 15px;
+    font-size: 20px; */
+    /* margin-top: 10px; */
+/* } */
 
 
 
 @keyframes FadeOn {
     from {
         opacity: 0;
-        top: -50%
+        top: 100%;
     }
 
     to {
         top: 50%;
         opacity: 1;
+    }
+}
+@keyframes fadeIn{
+    from{
+        top: -100px;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        top : 10px
+    }
+}
+
+@keyframes fadeOut{
+    to{
+        opacity: 0;
     }
 }
